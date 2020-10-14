@@ -37,24 +37,44 @@
       </v-btn>
     </v-app-bar>
 
+    <v-navigation-drawer
+      app
+      clipped
+    >
+      <v-list>
+        <v-list-item
+          v-for="item in menu"
+          :key="item.link"
+          :to="{path: item.link}"
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
     <v-main>
-      <HelloWorld/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
   },
 
   data: () => ({
-    //
+    menu: [
+      {title: 'Home Page', link: '/', icon: 'mdi-home' },
+      {title: 'About Page', link: '/about', icon: 'mdi-heart' },
+    ]
   }),
 };
 </script>
