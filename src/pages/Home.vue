@@ -1,17 +1,8 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="12">
-        Home Page :)
-
-        <v-container>
-          <v-row class="text-center">
-            <v-col cols="12">
-              <Card></Card>
-              <Card></Card>
-            </v-col>
-          </v-row>
-        </v-container>
+      <v-col v-for="n in 10" :key="n" cols="2">
+        <Card></Card>
       </v-col>
     </v-row>
   </v-container>

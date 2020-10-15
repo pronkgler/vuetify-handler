@@ -25,6 +25,11 @@ export default new VueRouter({
     {
       path: "/Sandra",
       component: () => import("./pages/Sandra.vue")
+    },
+    {
+      path: "/Edit",
+      component: () => import("./pages/Edit.vue")
     }  
+    
   ]
 });
