@@ -13,6 +13,10 @@ export default new VueRouter({
     {
       path: "/about",
       component: () => import("./pages/AboutPage.vue")
+    },
+    {
+      path: "/simple-table",
+      component: () => import("./pages/SimpleTablePage.vue")
     }
   ]
 });

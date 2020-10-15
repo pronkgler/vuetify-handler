@@ -74,6 +74,7 @@ export default {
     menu: [
       {title: 'Home Page', link: '/', icon: 'mdi-home' },
       {title: 'About Page', link: '/about', icon: 'mdi-heart' },
+      {title: 'Simple Table Page', link: '/simple-table', icon: 'mdi-heart' },
     ]
   }),
 };
