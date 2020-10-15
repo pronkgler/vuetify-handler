@@ -80,8 +80,10 @@ export default {
     drawer: null,
     menu: [
       {title: 'Home Page', link: '/', icon: 'mdi-home' },
-      {title: 'About Page', link: '/about', icon: 'mdi-heart' },
-      {title: 'Simple Table Page', link: '/simple-table', icon: 'mdi-heart' },
+      {title: 'About Page', link: '/About', icon: 'mdi-heart' },
+      {title: 'Simple Table Page', link: '/Table', icon: 'mdi-heart' },
+      {title: 'People', link: '/People', icon: 'mdi-heart' },
+      {title: 'Sandra', link: '/Sandra', icon: 'mdi-heart' },
     ]
   }),
 };

@@ -8,15 +8,23 @@ export default new VueRouter({
   routes: [
     {
       path: "/",
-      component: () => import("./pages/HomePage.vue")
+      component: () => import("./pages/Home.vue")
     },
     {
-      path: "/about",
-      component: () => import("./pages/AboutPage.vue")
+      path: "/About",
+      component: () => import("./pages/About.vue")
     },
     {
-      path: "/simple-table",
-      component: () => import("./pages/SimpleTablePage.vue")
-    }
+      path: "/Table",
+      component: () => import("./pages/Table.vue")
+    },
+    {
+      path: "/People",
+      component: () => import("./pages/People.vue")
+    },
+    {
+      path: "/Sandra",
+      component: () => import("./pages/Sandra.vue")
+    }  
   ]
 });
