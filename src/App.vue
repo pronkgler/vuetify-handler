@@ -6,6 +6,11 @@
       dark
     >
       <div class="d-flex align-center">
+        <v-app-bar-nav-icon 
+          color="white"
+          @click.stop="drawer = !drawer"
+        ></v-app-bar-nav-icon>
+
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -38,8 +43,9 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      app
-      clipped
+      v-model="drawer"
+      absolute
+      temporary
     >
       <v-list>
         <v-list-item
@@ -71,6 +77,7 @@ export default {
   },
 
   data: () => ({
+    drawer: null,
     menu: [
       {title: 'Home Page', link: '/', icon: 'mdi-home' },
       {title: 'About Page', link: '/about', icon: 'mdi-heart' },
