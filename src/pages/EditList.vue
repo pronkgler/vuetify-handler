@@ -7,7 +7,7 @@
                     <v-list-item-group
                         v-model="selectedItem"
                         color="primary"
-                        @click="onItemClick($event)"
+                        @change="onItemClick"
                     >                    
                         <v-list-item
                             v-for="(item, idx) in items"
