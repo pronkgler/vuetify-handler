@@ -29,6 +29,10 @@ export default new VueRouter({
     {
       path: "/EditList",
       component: () => import("./pages/EditList.vue")
+    },
+    {
+      path: "/CrudTable",
+      component: () => import("./pages/CrudTable.vue")
     }  
     
   ]

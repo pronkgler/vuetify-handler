@@ -85,6 +85,7 @@ export default {
       {title: 'People', link: '/People', icon: 'mdi-heart' },
       {title: 'Sandra', link: '/Sandra', icon: 'mdi-heart' },
       {title: 'EditList 🤠', link: '/EditList', icon: 'mdi-heart' },
+      {title: 'CrudTable 🤠', link: '/CrudTable', icon: 'mdi-heart' },
     ]
   }),
 };
