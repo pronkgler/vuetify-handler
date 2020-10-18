@@ -33,6 +33,10 @@ export default new VueRouter({
     {
       path: "/CrudTable",
       component: () => import("./pages/CrudTable.vue")
+    },
+    {
+      path: "/UserList",
+      component: () => import("./pages/UserList.vue")
     }  
     
   ]

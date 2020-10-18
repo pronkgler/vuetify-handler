@@ -86,6 +86,7 @@ export default {
       {title: 'Sandra', link: '/Sandra', icon: 'mdi-heart' },
       {title: 'EditList 🤠', link: '/EditList', icon: 'mdi-heart' },
       {title: 'CrudTable 🤠', link: '/CrudTable', icon: 'mdi-heart' },
+      {title: 'UserList 🤠', link: '/UserList', icon: 'mdi-heart' },
     ]
   }),
 };
