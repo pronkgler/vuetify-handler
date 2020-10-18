@@ -46,8 +46,9 @@
                         :disabled="!form.valid"
                         color="success"
                         class="mr-4"
+                        @click="saveForm"
                     >
-                        Validate
+                        Save
                     </v-btn>
 
                     <v-btn
@@ -79,6 +80,19 @@
         methods: {
             onItemClick(event) {
                 console.log('onItemClick', {event, sel: this.selectedItem, item: this.items[this.selectedItem]});
+            },
+            async saveForm() {
+                const apiUrl = 'http://localhost:6001/api';
+                const url = `${apiUrl}/users/${this.form.item.id}`;
+
+                const saveObj = {
+                    name: this.form.item.name,
+                    isActive: this.form.item.isActive
+                };
+
+                const resp = await axios.patch(url, saveObj);
+
+                console.log('saveForm', resp);
             },
             async loadData() {
                 const apiUrl = 'http://localhost:6001/api';
