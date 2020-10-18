@@ -37,6 +37,14 @@
                         required
                     ></v-text-field>
 
+                    <v-text-field
+                        v-if="form.isNew"
+                        v-model="form.item.passwd"
+                        :counter="10"
+                        label="Password"
+                        required
+                    ></v-text-field>
+
                     <v-checkbox
                         v-model="form.item.isActive"
                         label="is active?"
@@ -46,22 +54,26 @@
                         :disabled="!form.valid"
                         color="success"
                         class="mr-4"
-                        @click="saveForm"
+                        @click="modifyForm"
                     >
-                        Save
+                        Modify
                     </v-btn>
 
                     <v-btn
-                        color="error"
+                        :disabled="!form.valid"
+                        color="info"
                         class="mr-4"
+                        @click="newForm"
                     >
-                        Reset Form
+                        Insert
                     </v-btn>
 
                     <v-btn
                         color="warning"
+                        class="mr-4"
+                        @click="prepareNew"
                     >
-                        Reset Validation
+                        Reset
                     </v-btn>
                 </v-form>
             </v-col>
@@ -73,6 +85,8 @@
     // import getDesserts from '../lib/sample';
     import axios from 'axios';
 
+    const apiUrl = 'http://localhost:6001/api';
+
     export default {
         async mounted() {
             await this.loadData();
@@ -81,8 +95,16 @@
             onItemClick(event) {
                 console.log('onItemClick', {event, sel: this.selectedItem, item: this.items[this.selectedItem]});
             },
-            async saveForm() {
-                const apiUrl = 'http://localhost:6001/api';
+            prepareNew () {
+                this.form.isNew = true;
+
+                this.form.item = {
+                    name: null,
+                    passwd: '',
+                    isActive: false
+                };
+            },
+            async modifyForm() {
                 const url = `${apiUrl}/users/${this.form.item.id}`;
 
                 const saveObj = {
@@ -91,6 +113,21 @@
                 };
 
                 const resp = await axios.patch(url, saveObj);
+
+                console.log('saveForm', resp);
+            },
+            async newForm() {
+                const url = `${apiUrl}/users`;
+
+                const saveObj = {
+                    name: this.form.item.name,
+                    isActive: this.form.item.isActive,
+                    passwd: this.form.item.passwd,
+                    creator: '/api/users/1',
+                    lastModifier: '/api/users/1'
+                };
+
+                const resp = await axios.post(url, saveObj);
 
                 console.log('saveForm', resp);
             },
@@ -115,9 +152,11 @@
             selectedItem: null,
             items: [],
             form: {
+                isNew: true,
                 item: {
                     name: null,
-                    calories: 0,
+                    passwd: '',
+                    isActive: false
                 },
                 valid: null,
             },
