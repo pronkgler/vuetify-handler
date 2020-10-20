@@ -37,6 +37,10 @@ export default new VueRouter({
     {
       path: "/UserList",
       component: () => import("./pages/UserList.vue")
+    },
+    {
+      path: "/Calendar",
+      component: () => import("./pages/Calendar.vue")
     }  
     
   ]
